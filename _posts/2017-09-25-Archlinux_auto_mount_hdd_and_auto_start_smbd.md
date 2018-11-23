@@ -1,5 +1,5 @@
 ---
-title: Archlinux + Raspberry 打造NAS  samba篇 
+title: Archlinux 自动挂载移动硬盘，开机自动启动smb服务  
 layout:  post  
 categories: Archlinux Raspberry  
 description: Archlinux 自动挂载移动硬盘，开机自动启动smb服务  
@@ -7,7 +7,6 @@ description: Archlinux 自动挂载移动硬盘，开机自动启动smb服务
 
 
 ## Archlinux + Raspberry 打造NAS: samba篇
-
 树莓派自动挂载硬盘，并开启smb服务。
 
 ### 开机自动挂在移动硬盘ntfs
@@ -56,6 +55,7 @@ vim /etc/samba/smb.conf
 ```shell
 sudo systemctl restart smbd.service
 ```
+注意: 在 samba 4.8.0-1里, smbd.service 和 nmbd.service 单元被改名为 smb.service 和 nmb.service.  
 配置生效，这样局域网内，树莓派上的samba共享就建成了。
 4. 开机自启
 ```shell
